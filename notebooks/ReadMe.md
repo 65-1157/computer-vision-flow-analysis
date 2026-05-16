@@ -11,7 +11,7 @@ Order	Notebook	Main Goal	Main Output
 04	`04\_temporal\_analysis.ipynb`	Analyze object behavior through time.	Temporal features and consistency checks.
 05	`05\_flow\_characterisation.ipynb`	Convert trajectories into flow-related indicators.	Velocity, displacement, size, and flow summaries.
 06	`06\_campaign\_statistics.ipynb`	Consolidate the full campaign results.	Final tables, figures, and summary statistics.
----
+```
 Recommended Notebook Header
 Each notebook should begin with a short markdown cell using the structure below:
 ```markdown
