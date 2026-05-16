@@ -1,5 +1,3 @@
-Notebooks
-This folder contains the executable workflow of the computer-vision pipeline.
 The notebooks should be executed in the order shown below. Each notebook receives outputs from previous stages and generates intermediate or final artifacts for the next stage.
 ---
 Execution Order
