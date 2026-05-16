@@ -4,7 +4,7 @@ This document summarizes the execution flow of the project.
 
 The project is organized as a computer-vision pipeline for processing image/video frames, detecting visual objects, tracking them over time, and extracting flow-related indicators.
 
-The current version is a deterministic computer-vision baseline. Neural-network-based segmentation or detection can be added later as a model-based improvement.
+The current version has a deterministic computer-vision baseline and a neural-network-based segmentation or detection under development.
 
 ---
 
