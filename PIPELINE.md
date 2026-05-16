@@ -1,0 +1,249 @@
+# Pipeline Overview
+
+This document summarizes the execution flow of the project.
+
+The project is organized as a computer-vision pipeline for processing image/video frames, detecting visual objects, tracking them over time, and extracting flow-related indicators.
+
+The current version is a deterministic computer-vision baseline. Neural-network-based segmentation or detection can be added later as a model-based improvement.
+
+---
+
+## 1. General Workflow
+
+```text
+Raw video / image frames
+        |
+        v
+Calibration and reference frame preparation
+        |
+        v
+Preprocessing
+        |
+        v
+Segmentation
+        |
+        v
+Tracking
+        |
+        v
+Temporal analysis
+        |
+        v
+Flow characterisation
+        |
+        v
+Campaign statistics and final reports
+```
+
+---
+
+## 2. Notebook Execution Order
+
+| Step | Notebook | Purpose |
+|---:|---|---|
+| 00 | `00_calibration.ipynb` | Defines physical calibration, region of interest, and pixel-to-physical-scale conversion. |
+| 00b | `00_pre_reference_frame.ipynb` | Prepares the reference frame used by later image-processing steps. |
+| 01 | `01_preprocessing.ipynb` | Cleans and prepares frames for segmentation. |
+| 02 | `02_segmentation.ipynb` | Detects objects or regions of interest in each frame. |
+| 03 | `03_tracking.ipynb` | Connects detections across frames and creates object trajectories. |
+| 04 | `04_temporal_analysis.ipynb` | Analyzes object behavior across time. |
+| 05 | `05_flow_characterisation.ipynb` | Converts tracked motion into flow-related indicators. |
+| 06 | `06_campaign_statistics.ipynb` | Produces final statistics, figures, and campaign-level summaries. |
+
+---
+
+## 3. Pipeline Stages
+
+### 3.1 Calibration
+
+The calibration step defines the relationship between image coordinates and physical dimensions.
+
+Typical outputs include:
+
+- region of interest;
+- pixel-to-millimeter or pixel-to-meter conversion;
+- reference scale parameters;
+- configuration files used by the following notebooks.
+
+This step is important because flow-related indicators must be interpreted in physical units, not only in pixels.
+
+---
+
+### 3.2 Reference Frame Preparation
+
+The reference-frame step prepares a stable visual baseline for the experiment.
+
+Typical uses include:
+
+- background reference;
+- frame alignment support;
+- visual comparison before and after preprocessing;
+- consistent processing across the campaign.
+
+---
+
+### 3.3 Preprocessing
+
+The preprocessing step converts raw visual data into cleaner inputs for segmentation.
+
+Typical operations include:
+
+- frame loading;
+- cropping or region-of-interest selection;
+- denoising;
+- contrast adjustment;
+- grayscale conversion;
+- threshold preparation;
+- saving intermediate frames.
+
+The goal is to reduce visual noise and make the target objects easier to segment.
+
+---
+
+### 3.4 Segmentation
+
+The segmentation step identifies candidate objects or relevant regions in each frame.
+
+Typical outputs include:
+
+- object masks;
+- contours;
+- bounding boxes;
+- centroid coordinates;
+- area and shape descriptors.
+
+In the current baseline, segmentation can be performed with classical computer-vision rules. In future versions, this step can be replaced or complemented by neural networks such as CNNs, U-Net, or YOLO-style detectors.
+
+---
+
+### 3.5 Tracking
+
+The tracking step connects detections across consecutive frames.
+
+Typical outputs include:
+
+- track IDs;
+- object trajectories;
+- frame-by-frame positions;
+- estimated displacements;
+- lost-track indicators.
+
+This step transforms isolated detections into temporal object histories.
+
+---
+
+### 3.6 Temporal Analysis
+
+The temporal-analysis step studies how detected and tracked objects evolve over time.
+
+Typical outputs include:
+
+- object lifetime;
+- movement trends;
+- trajectory smoothness;
+- velocity-related variables;
+- temporal consistency checks.
+
+This stage helps validate whether the tracking results are physically and visually coherent.
+
+---
+
+### 3.7 Flow Characterisation
+
+The flow-characterisation step converts visual motion into domain indicators.
+
+Typical outputs may include:
+
+- displacement;
+- velocity;
+- direction;
+- object-size distribution;
+- flow-related summaries.
+
+This is the stage where image processing becomes measurable information for engineering analysis.
+
+---
+
+### 3.8 Campaign Statistics
+
+The final step consolidates the results from all previous stages.
+
+Typical outputs include:
+
+- summary tables;
+- campaign-level indicators;
+- final figures;
+- quality-control statistics;
+- interpretation-ready results.
+
+This notebook should generate the main artifacts used in reports, presentations, and interviews.
+
+---
+
+## 4. Expected Data Flow
+
+```text
+data/raw/
+    Original videos or frames.
+    These files are not committed to GitHub.
+
+data/interim/
+    Intermediate outputs generated by preprocessing, segmentation, and tracking.
+
+data/processed/
+    Final cleaned tables and outputs used by the reporting stage.
+
+reports/figures/
+    Selected figures used in README, reports, and presentations.
+```
+
+Large raw files should remain outside the GitHub repository.
+
+---
+
+## 5. Current Baseline and Future Neural-Network Extension
+
+The current project version is designed as an explainable baseline using classical computer-vision techniques.
+
+This is useful because each processing stage can be inspected, validated, and debugged.
+
+Future neural-network extensions may include:
+
+- CNN-based object/non-object classification;
+- U-Net-style segmentation;
+- YOLO-style object detection;
+- learned tracking support;
+- automated quality-control classification.
+
+The recommended next improvement is to start with neural-network segmentation, because segmentation is the most natural replacement for the current deterministic image-processing stage.
+
+---
+
+## 6. Quality-Control Points
+
+Each stage should include simple quality checks.
+
+| Stage | Suggested quality check |
+|---|---|
+| Calibration | Verify whether physical scale and ROI are visually correct. |
+| Preprocessing | Compare raw and processed frames. |
+| Segmentation | Check object masks, contours, and false positives. |
+| Tracking | Check trajectory continuity and lost tracks. |
+| Temporal analysis | Check unrealistic jumps or unstable trajectories. |
+| Flow characterisation | Check whether physical values are within plausible ranges. |
+| Campaign statistics | Check consistency between tables, figures, and final summaries. |
+
+---
+
+## 7. Interview-Oriented Summary
+
+This project demonstrates the ability to build a complete computer-vision workflow:
+
+- transforming raw frames into structured data;
+- applying preprocessing and segmentation;
+- tracking objects over time;
+- extracting engineering indicators;
+- organizing notebooks and reusable Python modules;
+- preparing the project for future neural-network development.
+
+The project is intentionally lean. Its goal is not to include every possible technique, but to show a clear, reproducible, and extensible pipeline.
