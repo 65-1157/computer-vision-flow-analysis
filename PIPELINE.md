@@ -1,4 +1,4 @@
-# Pipeline Overview
+# Pipeline task overview: sequence of scripts.
 
 This document summarizes the execution flow of the project.
 
