@@ -1,0 +1,55 @@
+{
+  "project": {
+    "name": "computer-vision-flow-analysis",
+    "version": "0.1.0",
+    "description": "Computer-vision pipeline for frame preprocessing, segmentation, tracking, and flow characterisation."
+  },
+  "paths": {
+    "raw_data_dir": "data/raw",
+    "interim_data_dir": "data/interim",
+    "processed_data_dir": "data/processed",
+    "figures_dir": "reports/figures"
+  },
+  "input": {
+    "video_file": "data/raw/sample_video.mp4",
+    "frame_extension": ".png",
+    "frame_rate_fps": 30
+  },
+  "calibration": {
+    "roi": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 480
+    },
+    "pixel_to_mm": 1.0
+  },
+  "preprocessing": {
+    "convert_to_grayscale": true,
+    "apply_denoising": true,
+    "apply_contrast_adjustment": true,
+    "save_intermediate_frames": true
+  },
+  "segmentation": {
+    "method": "classical_cv",
+    "threshold_method": "adaptive",
+    "min_object_area_px": 20,
+    "max_object_area_px": 10000
+  },
+  "tracking": {
+    "max_distance_px": 30,
+    "max_missing_frames": 5,
+    "min_track_length": 3
+  },
+  "metrics": {
+    "compute_velocity": true,
+    "compute_displacement": true,
+    "compute_size_distribution": true
+  },
+  "outputs": {
+    "save_detection_table": true,
+    "save_tracking_table": true,
+    "save_summary_statistics": true,
+    "save_figures": true
+  }
+}
