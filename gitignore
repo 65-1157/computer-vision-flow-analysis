@@ -1,0 +1,114 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# =========================
+# Local configuration
+# =========================
+config.json
+.env
+.env.*
+
+# =========================
+# Data files
+# Keep folder structure with .gitkeep files
+# =========================
+data/raw/*
+data/interim/*
+data/processed/*
+
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# =========================
+# Large media files
+# =========================
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.mpeg
+*.mpg
+
+# =========================
+# Generated image sequences
+# =========================
+*.tif
+*.tiff
+
+# Optional:
+# uncomment if frame sequences become too large
+# *.png
+# *.jpg
+# *.jpeg
+
+# =========================
+# Generated binary/model files
+# =========================
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+
+# =========================
+# Tables and intermediate outputs
+# =========================
+*.parquet
+*.feather
+*.arrow
+
+# Optional:
+# uncomment if CSV/XLSX files are large or private
+# *.csv
+# *.xlsx
+
+# =========================
+# Logs and temporary files
+# =========================
+logs/
+*.log
+tmp/
+temp/
+.cache/
+
+# =========================
+# Operating system files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE/editor files
+# =========================
+.vscode/
+.idea/
