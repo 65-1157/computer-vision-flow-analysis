@@ -1,6 +1,6 @@
 # Computer Vision Flow Analysis
 
-Lean computer-vision project for processing video frames, segmenting visual objects, tracking them over time, and estimating flow-related indicators.
+A computer-vision project for processing video frames, segmenting visual objects, tracking them over time, and estimating flow-related indicators.
 
 ## Project goal
 
@@ -32,7 +32,7 @@ computer-vision-flow-analysis/
 ## Current status
 
 - Classical computer-vision baseline is available in notebooks.
-- Neural-network segmentation/detection is planned as the next development step.
+- Neural-network segmentation/detection is under development.
 - The repository is structured to support gradual refactoring from notebooks into reusable modules.
 
 ## How to run
