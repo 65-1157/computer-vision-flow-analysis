@@ -34,6 +34,7 @@ Explain how this notebook connects to the previous and next stages.
 ```
 ---
 Development Rule
+```text
 The notebooks are used to explain and validate the workflow.
 Reusable logic should gradually move to the `src/` folder, for example:
 repeated file-handling functions to `src/utils.py`;
@@ -42,3 +43,4 @@ segmentation routines to `src/segmentation.py`;
 tracking routines to `src/tracking.py`;
 metric calculations to `src/metrics.py`.
 This keeps the project readable for interviews and easier to maintain as software.
+```
