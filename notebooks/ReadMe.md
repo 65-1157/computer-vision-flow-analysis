@@ -2,6 +2,7 @@ The notebooks should be executed in the order shown below. Each notebook receive
 ---
 Execution Order
 Order	Notebook	Main Goal	Main Output
+``` text
 00	`00\_calibration.ipynb`	Define calibration parameters, physical scale, and region of interest.	Calibration configuration and ROI parameters.
 00b	`00\_pre\_reference\_frame.ipynb`	Prepare the reference frame used by later processing steps.	Reference frame and related metadata.
 01	`01\_preprocessing.ipynb`	Clean and standardize raw frames before segmentation.	Preprocessed frames.
